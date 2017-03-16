@@ -1,0 +1,90 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout">
+        <Button
+            android:id="@+id/btn_cancle"
+            android:text="cancle"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:layout_alignBaseline="@+id/btn_confirm"
+            android:layout_alignBottom="@+id/btn_confirm"
+            android:layout_alignLeft="@+id/et_searchMap"
+            android:layout_alignStart="@+id/et_searchMap"
+            android:layout_width="fill_parent"
+            android:layout_weight="0.5"
+            android:layout_toStartOf="@+id/btn_confirm"
+            android:layout_toLeftOf="@+id/btn_confirm"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:text="CONFIRM"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/button"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/et_searchMap"
+            android:layout_width="fill_parent"
+            android:layout_weight="0.5"
+            android:layout_toRightOf="@+id/et_searchMap" />
+
+
+    </LinearLayout>
+
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.hyunseok.android.memo.MapsActivity"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn_search"
+        android:layout_marginTop="5dp" />
+
+    <EditText
+        android:id="@+id/et_searchMap"
+        android:hint="Input Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:padding="5dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/map"
+        android:layout_toLeftOf="@+id/btn_search"
+        android:layout_toStartOf="@+id/btn_search"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp" />
+
+    <Button
+        android:id="@+id/btn_search"
+        android:text="search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp" />
+
+
+</RelativeLayout>

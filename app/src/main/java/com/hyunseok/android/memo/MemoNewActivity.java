@@ -297,7 +297,27 @@ public class MemoNewActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_cancle :
                     hideKeypad();
-                    MemoNewActivity.super.onBackPressed();
+
+                    // 제목이나 내용을 작성했을 경우에만 AlertDialog 나타나게함.
+                    if( !(editText_title.getText().toString().equals("")) || !(editText_content.getText().toString().equals(""))) {
+                        AlertDialog.Builder alert_delete = new AlertDialog.Builder(MemoNewActivity.this);
+                        alert_delete.setTitle("FINISH WRITING A NOTE");
+                        alert_delete.setMessage("Exit without saving.");
+                        alert_delete.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                MemoNewActivity.super.onBackPressed();
+                            }
+                        });
+                        alert_delete.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        alert_delete.show();
+                    } else {
+                        MemoNewActivity.super.onBackPressed();
+                    }
                     break;
                 case R.id.imgbtn_addimg : // Add Image 버튼 클릭시
                     hideKeypad();
@@ -312,7 +332,6 @@ public class MemoNewActivity extends AppCompatActivity {
                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         PermissionControl.checkPermission(MemoNewActivity.this, REQ_LOCATION);
                     } else {
-                        // TODO 위치 버튼을 누르면 위치 표시하기
                         alertLocation(); // 내 위치 or 지도 검색할지 선택하는 alert
                     }
                     break;

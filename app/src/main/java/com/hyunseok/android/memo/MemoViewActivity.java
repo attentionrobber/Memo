@@ -1,7 +1,9 @@
 package com.hyunseok.android.memo;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -126,11 +128,26 @@ public class MemoViewActivity extends AppCompatActivity {
                     }
                     break;
                 case R.id.btn_delete :
-                    try {
-                        delete(datas.get(position));
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
+                    AlertDialog.Builder alert_delete = new AlertDialog.Builder(MemoViewActivity.this);
+                    alert_delete.setTitle("DELETE");
+                    alert_delete.setMessage("Are you sure you want to delete?");
+                    alert_delete.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            try {
+                                delete(datas.get(position));
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                    alert_delete.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    alert_delete.show();
+
                     break;
             }
         }

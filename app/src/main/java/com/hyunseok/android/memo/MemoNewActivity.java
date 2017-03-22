@@ -52,7 +52,7 @@ public class MemoNewActivity extends AppCompatActivity {
     private int PERM_RESULT = 0;
     private final int REQ_PERMISSION = 1; // 요청 코드
     private final int REQ_PLACE_PICKER = 98; // PlacePicker(장소 선택) 요청 코드
-    private final int REQ_LOCATION = 99; // 내 위치 요청 코드\
+    private final int REQ_LOCATION = 99; // 내 위치 요청 코드
     private final int REQ_CAMERA = 101; // 카메라 요청 코드
     private final int REQ_GALLERY = 102; // 갤러리 요청 코드
 

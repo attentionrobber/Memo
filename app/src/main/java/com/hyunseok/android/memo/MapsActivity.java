@@ -256,8 +256,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btn_confirm:
+                    if( latitude == 0 || longitude == 0 ) { // 아직 위치를 못찾았을 경우(위도 or 경도가 0일 경우)
+                        Toast.makeText(MapsActivity.this, "아직 위치를 찾지 못했습니다.", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
                     Intent intent = new Intent(MapsActivity.this, MemoNewActivity.class);
-                    // TODO lat, lng 0, 0일 때 CONFIRM 안되도록하기
                     intent.putExtra("latitude", latitude);
                     intent.putExtra("longitude", longitude);
                     setResult(RESULT_OK, intent); // startActivityOnResult로 호출을 하면 setResult를 해줘야한다.

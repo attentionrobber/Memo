@@ -22,6 +22,18 @@
         android:background="@drawable/button"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp" />
+    <ImageButton
+        android:id="@+id/imgbtn_location"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_mylocation"
+        android:background="@drawable/button"
+        android:layout_above="@+id/textView_title"
+        android:layout_toRightOf="@+id/imgbtn_addimg"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@+id/imgbtn_addimg"
+        android:layout_width="wrap_content" />
 
     <EditText
         android:id="@+id/textView_title"

@@ -52,7 +52,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
             // Bbs.class에 정의된 테이블 삭제하고
             TableUtils.dropTable(connectionSource, Memo.class, false);
 
-            // TODO 데이터를 보존해야될 필요성이 있으면 중간처리르르 해줘야한다.
+            // TODO 데이터를 보존해야될 필요성이 있으면 중간처리를 해줘야한다.
             // TODO 임시테이블을 생성한 후 데이터를 먼저 저장하고 onCreate 이후에 데이터를 입력해준다.
 
             // onCreate를 호출해서 테이블을 생성한다.
